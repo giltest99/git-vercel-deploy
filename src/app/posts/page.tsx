@@ -25,7 +25,7 @@ export default function Posts() {
           <li key={post.id} className="rounded shadow w-full min-h-24 bg-white">
             <Link
               href={`/posts/${post.id}`}
-              className="inline-block w-full h-full p-4 text-left rounded hover:bg-gray-100"
+              className="inline-block w-full h-full p-4 text-left rounded hover:bg-gray-100 transition duration-300"
             >
               {post.title}
             </Link>

@@ -6,12 +6,14 @@ import Link from "next/link";
 
 export default function PostDetail() {
   const { id } = useParams();
+
   interface Post {
     title: string;
     body: string;
   }
 
   const [post, setPost] = useState<Post | null>(null);
+
   useEffect(() => {
     const fetchPost = async () => {
       const response = await fetch(
@@ -22,8 +24,9 @@ export default function PostDetail() {
     };
     fetchPost();
   }, [id]);
+
   if (!post) {
-    return <div>Loading...</div>;
+    return <div>No post found</div>;
   }
 
   return (
