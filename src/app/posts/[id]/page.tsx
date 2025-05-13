@@ -1,0 +1,39 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
+
+export default function PostDetail() {
+  const { id } = useParams();
+  interface Post {
+    title: string;
+    body: string;
+  }
+
+  const [post, setPost] = useState<Post | null>(null);
+  useEffect(() => {
+    const fetchPost = async () => {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${id}`
+      );
+      const data = await response.json();
+      setPost(data);
+    };
+    fetchPost();
+  }, [id]);
+  if (!post) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <>
+      <h1>Post detail</h1>
+      <Link href="/posts" className="text-blue-500">
+        Back to posts
+      </Link>
+      <h2>{post.title}</h2>
+      <p>{post.body}</p>
+    </>
+  );
+}
