@@ -1,6 +1,12 @@
 import React from "react";
 import Link from "next/link";
 
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
 export async function generateStaticParams() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await res.json();
@@ -10,7 +16,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: PageProps) {
   const { id } = params;
 
   const postData = await fetch(
