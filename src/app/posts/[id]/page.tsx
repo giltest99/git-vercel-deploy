@@ -31,7 +31,7 @@ export default function PostDetail() {
 
   return (
     <>
-      <h1>Post detail</h1>
+      <h1 className="text-3xl my-6">Post detail</h1>
       <Link href="/posts" className="text-blue-500">
         Back to posts
       </Link>

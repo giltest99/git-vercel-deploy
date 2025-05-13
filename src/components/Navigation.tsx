@@ -5,7 +5,6 @@ export default function Navigation() {
   const links = [
     { name: "Home", path: "/" },
     { name: "Posts", path: "/posts" },
-    { name: "Typicode", path: "/typicode" },
   ];
 
   return (
