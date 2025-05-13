@@ -2,11 +2,14 @@ import React from "react";
 import Link from "next/link";
 
 export default async function page({ params }: { params: { id: number } }) {
-  const { id } = params;
+  const { id } = await params;
   const postData = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`
   );
   const post = await postData.json();
+
+  console.log(id);
+
   if (post && post.id !== Number(id)) {
     return (
       <div className="">
