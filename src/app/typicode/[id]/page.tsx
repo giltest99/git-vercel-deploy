@@ -1,6 +1,15 @@
 import React from "react";
 import Link from "next/link";
 
+export async function generateStaticParams() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const posts = await res.json();
+
+  return posts.map((post: { id: number }) => ({
+    id: post.id.toString(),
+  }));
+}
+
 export default async function page(params: { id: string }) {
   const { id } = params;
 
