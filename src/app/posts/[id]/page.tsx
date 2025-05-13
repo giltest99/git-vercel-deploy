@@ -35,8 +35,8 @@ export default function PostDetail() {
       <Link href="/posts" className="text-blue-500">
         Back to posts
       </Link>
-      <h2>{post.title}</h2>
-      <p>{post.body}</p>
+      <h2 className="text-2xl my-4">{post.title}</h2>
+      <p className="text-lg">{post.body}</p>
     </>
   );
 }
