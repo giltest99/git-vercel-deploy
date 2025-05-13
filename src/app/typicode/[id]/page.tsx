@@ -1,6 +1,14 @@
 import React from "react";
 import Link from "next/link";
 
+// Next.js génère automatiquement un type pour les paramètres dynamiques
+// Vous pouvez l'importer comme suit :
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
 export async function generateStaticParams() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await res.json();
@@ -10,7 +18,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: PageProps) {
   const { id } = params;
 
   const postData = await fetch(
