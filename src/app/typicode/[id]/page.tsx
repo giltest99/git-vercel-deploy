@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default async function page(params: { id: number }) {
+export default async function page(params: { id: string }) {
   const { id } = params;
 
   const postData = await fetch(
