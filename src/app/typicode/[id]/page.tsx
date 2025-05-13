@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default async function page({ params }: { params: { id: string } }) {
+export default async function page({ params }: { params: { id: number } }) {
   const { id } = params;
   const postData = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`
